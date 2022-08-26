@@ -1,0 +1,8 @@
+node_modules
+*.vsix
+/.vscode
+.gitattributes
+.vscodeignore
+.gitignore.swp
+*.md
+

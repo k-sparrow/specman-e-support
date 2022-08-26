@@ -1,0 +1,25 @@
+{
+  "name": "e",
+  "displayName": "e-highlight",
+  "description": "Specman-e Programming Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "specman",
+      "aliases": ["specman-e", "specman"],
+      "extensions": [".e"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "specman",
+      "scopeName": "source.specman",
+      "path": "./syntaxes/specman.tmLanguage.json"
+    }]
+  }
+}
