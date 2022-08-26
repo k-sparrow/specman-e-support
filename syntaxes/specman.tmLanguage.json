@@ -3,10 +3,7 @@
 	"name": "specman-e",
 	"patterns": [
 		{"include": "#code-block"},
-		{
-			"name": "comment.block.documentation.specman",
-			"match": ".*"
-		}
+		{"include": "#non-code-doc"}
 	],
 	"repository": {
 		"code-block": {
@@ -17,8 +14,13 @@
 			"patterns": [
 				{ "include": "#comments" },
 				{ "include": "#keywords" },
-				{ "include": "#strings"  }
+				{ "include": "#strings"  },
+				{ "include": "#punctuation" }
 			]
+		},
+		"non-code-doc": {
+			"name": "comment.block.documentation.specman",
+			"match": ".*"
 		},
 		"comments":{
 			"patterns": [
@@ -45,6 +47,10 @@
 				{
 					"name": "keyword.control.specman",
 					"match": "\\b(if|then|else|while|for|case|return|repeat|do|continue|break|until)\\b"
+				},
+				{
+					"name": "storage.type.class.specman",
+					"match": "\\b(unit|struct|sequence|extend|like)\\b"
 				}
 			]
 		},
@@ -71,6 +77,18 @@
 							"match": "\\\\."
 						}
 					]
+				}
+			]
+		},
+		"punctuation":{
+			"patterns": [
+				{
+					"name": "punctuation.separator.dot-access.specman",
+					"match": ";|:|,"
+				},
+				{
+					"name": "markup.italic.specman",
+					"match": "%|\\!"
 				}
 			]
 		}
