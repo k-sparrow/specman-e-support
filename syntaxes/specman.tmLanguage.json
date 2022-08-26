@@ -14,7 +14,7 @@
 			"patterns": [
 				{ "include": "#comments" },
 				{ "include": "#keywords" },
-				{ "include": "#strings"  },
+				{ "include": "#literals" },
 				{ "include": "#punctuation" }
 			]
 		},
@@ -54,6 +54,13 @@
 				}
 			]
 		},
+		"literals": {
+			"patterns":[
+				{ "include": "#strings" },
+				{ "include": "#numbers"},
+				{ "include": "#kwd-literals"}
+			]
+		},
 		"strings": {
 			"patterns":[
 				{
@@ -77,6 +84,34 @@
 							"match": "\\\\."
 						}
 					]
+				}
+			]
+		},
+		"numbers" :{
+			"patterns": [
+				{
+					"comment": "Contant integer literals",
+					"name": "constant.numeric.integer",
+					"match": "\\b[1-9][0-9]*\\b"
+				}
+			]
+		},
+		"kwd-literals" : {
+			"patterns": [
+				{
+					"comment": "Boolean literal",
+					"name": "constant.language.true.specman",
+					"match": "\\b(TRUE)\\b"
+				},
+				{
+					"comment": "Boolean literal",
+					"name": "constant.language.false.specman",
+					"match": "\\b(FALSE)\\b"
+				},
+				{
+					"comment": "Boolean literal",
+					"name": "constant.language.nullptr.specman",
+					"match": "\\b(UNDEF)\\b"
 				}
 			]
 		},
