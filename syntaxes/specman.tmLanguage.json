@@ -2,11 +2,24 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "specman-e",
 	"patterns": [
-		{ "include": "#comments" },
-		{ "include": "#keywords" },
-		{ "include": "#strings"  }
+		{"include": "#code-block"},
+		{
+			"name": "comment.block.documentation.specman",
+			"match": ".*"
+		}
 	],
 	"repository": {
+		"code-block": {
+			"begin": "^\\<\\'",
+			"beginCaptures": {"0":{"name": "markup.bold.specman"}},
+			"end": "^\\'\\>",
+			"endCaptures": {"0":{"name": "markup.bold.specman"}},
+			"patterns": [
+				{ "include": "#comments" },
+				{ "include": "#keywords" },
+				{ "include": "#strings"  }
+			]
+		},
 		"comments":{
 			"patterns": [
 				{
@@ -31,7 +44,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.specman",
-					"match": "\\b(if|while|for|case|return|repeat|do)\\b"
+					"match": "\\b(if|then|else|while|for|case|return|repeat|do|continue|break|until)\\b"
 				}
 			]
 		},
