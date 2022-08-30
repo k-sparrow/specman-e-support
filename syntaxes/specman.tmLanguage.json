@@ -64,12 +64,31 @@
 						}
 					],
 					"end": "\\{"
+				},
+				{
+					"include": "#struct-members"
 				}
 			]
 		},
 		"non-code-doc": {
 			"name": "comment.block.documentation.specman",
 			"match": ".*"
+		},
+		"struct-members": {
+			"patterns": [
+				{
+					"comment": "Event declaration",
+					"begin": "\\b(event)\\s+([a-zA-Z0-9_]+)\\s+(is(?:(\\s+only\\s+)?))\\b",
+					"beginCaptures": {"1":{"name":"storage.modifier.specman"},
+									  "2":{"name":"entity.name.type.specman"},
+									  "3":{"name":"storage.modifier.specman"}
+									 },
+					"patterns": [
+						{"include": "#strings"}
+					],
+					"end": "\\;"
+				}
+			]
 		},
 		"comments":{
 			"patterns": [
@@ -128,14 +147,7 @@
 				},
 				{
 					"name": "string.quoted.single.specman",
-					"begin": "\\'",
-					"end": "\\'",
-					"patterns": [
-						{
-							"name": "constant.character.escape.specman",
-							"match": "\\\\."
-						}
-					]
+					"match": "\\'[^\n]*\\'"
 				}
 			]
 		},
