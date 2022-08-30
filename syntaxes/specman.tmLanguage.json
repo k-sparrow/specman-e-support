@@ -28,8 +28,8 @@
 					"beginCaptures": {"0": {"name": "storage.type.class.specman"}},
 					"patterns": [
 						{
-							"name": "storage.modifier.specman",
-							"match": "\\b(like)"
+							"name": "keyword.control.specman",
+							"match": "\\b(like)\\b"
 						},
 						{
 							"match": "\\b([a-zA-Z0-9_]+)(\\')([a-zA-Z0-9_]+)\\b",
@@ -86,6 +86,24 @@
 					"end": "\\n"
 				},
 				{
+					"comment": "Complex macro definition",
+					"begin": "\\b(define)\\s+<([a-zA-Z0-9_]+)'([a-zA-Z0-9_]+)>\\s+",
+					"beginCaptures": {"1":{"name":"string.other.specman"},
+									  "2":{"name":"entity.name.type.specman"},
+									  "3":{"name":"storage.type.specman"}},
+
+					"patterns": [
+						{
+							"name": "keyword.control.specman",
+							"match": "\\b(as(?:(\\s+computed))?)\\b"
+						},
+						{ "include": "#statements" 	   },
+						{ "include": "#struct-members" },
+						{ "include": "#strings" 	   }
+					],
+					"end": ";"
+				},
+				{
 					"include": "#struct-members"
 				}
 			]
@@ -137,8 +155,8 @@
 					"match": "\\b(if|then|else|while|for|case|return|repeat|do|continue|break|until)\\b"
 				},
 				{
-					"name": "storage.type.class.specman",
-					"match": "\\b(unit|struct|sequence|extend|like)\\b"
+					"name": "keyword.control.specman",
+					"match": "\\b(unit|struct|sequence|extend)\\b"
 				}
 			]
 		},
