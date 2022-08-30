@@ -73,6 +73,19 @@
 					"end": "\\;"
 				},
 				{
+					"comment": "Verilog-like macro definition",
+					"begin": "\\b(`?define)\\s+([a-zA-Z0-9_]+)\\b",
+					"beginCaptures": {"1":{"name":"string.other.specman"},
+									  "2":{"name":"entity.name.function.specman"}},
+					"patterns": [
+						{
+							"match": ".*",
+							"name":"entity.other.specman"
+						}
+					],
+					"end": "\\n"
+				},
+				{
 					"include": "#struct-members"
 				}
 			]
