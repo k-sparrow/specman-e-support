@@ -128,14 +128,7 @@
 				},
 				{
 					"name": "string.quoted.single.specman",
-					"begin": "\\'",
-					"end": "\\'",
-					"patterns": [
-						{
-							"name": "constant.character.escape.specman",
-							"match": "\\\\."
-						}
-					]
+					"match": "\\'[^\n]*\\'"
 				}
 			]
 		},
