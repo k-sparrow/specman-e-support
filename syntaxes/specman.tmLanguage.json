@@ -66,6 +66,13 @@
 					"end": "\\{"
 				},
 				{
+					"comment": "Type declaration",
+					"begin": "\\b(type)\\s+([a-zA-Z0-9_]+)\\b",
+					"beginCaptures": {"1":{"name": "storage.modifier.type.specman"},
+									  "2":{"name": "entity.name.type.specman"}},
+					"end": "\\;"
+				},
+				{
 					"include": "#struct-members"
 				}
 			]
